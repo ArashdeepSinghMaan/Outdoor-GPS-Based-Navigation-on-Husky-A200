@@ -3,7 +3,7 @@ Outdoor GPS-Based Navigation on Husky A200
 # Outdoor GPS-Based Navigation on Husky A200 (Simulation + Real Hardware)
 
 This project demonstrates **outdoor GPS-based navigation** for the **Husky A200** robot, implemented in both simulation and on real hardware.  
-The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, leverages **Cartographer SLAM** for mapping, and uses the **SMAC planner** with **Regulated Pure Pursuit controller** for accurate waypoint navigation.
+The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, leverages **RTAB MAP SLAM** for mapping, and uses the **SMAC planner** with **Regulated Pure Pursuit controller** for accurate waypoint navigation.
 
 ---
 
