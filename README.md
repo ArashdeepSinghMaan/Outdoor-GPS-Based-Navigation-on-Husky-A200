@@ -13,13 +13,13 @@ The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, l
   - GPS data processing with **navsat_transform_node**
   - IMU and wheel odometry integration
 - **SLAM & Mapping**
-  - **Cartographer SLAM** for 2D mapping in outdoor environments
+  - **RTAB MAP SLAM** for 3D mapping in outdoor environments
 - **Waypoint Navigation**
   - Global path planning using **SMAC Planner**
   - Local path following with **Regulated Pure Pursuit Controller**
-  - Achieved waypoint following accuracy of **< 0.5 m**
+  - 
 - **Seamless Mode Switching**
-  - Designed reusable launch files for **indoor/outdoor** mode switching
+  - Designing reusable launch files for **indoor/outdoor** mode switching
 - **Simulation + Hardware Support**
   - Works with **Gazebo** simulation  
   - Fully deployable on **real Husky A200 hardware**
@@ -28,7 +28,7 @@ The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, l
 
 ## Tools & Technologies
 - ROS 2 Humble
-- Cartographer SLAM
+- RTAB MAP SLAM
 - Nav2 (SMAC Planner, Regulated Pure Pursuit Controller)
 - robot_localization (dual-EKF + navsat_transform_node)
 - GPS & IMU
@@ -44,8 +44,8 @@ The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, l
 │ ├── husky_description/ # Robot URDF and sensor setup
 │ ├── husky_bringup/ # Indoor/outdoor mode launch files
 │ └── gps_utils/ # GPS processing and helper scripts
-├── maps/ # Maps generated via Cartographer
-├── config/ # EKF, Nav2, and Cartographer configs
+├── maps/ # Maps generated via RTAB MAP
+├── config/ # EKF, Nav2, and SLAM configs
 └── README.md
 
 ---
@@ -55,7 +55,7 @@ The system integrates **GPS, IMU, and odometry** with a **dual-EKF pipeline**, l
 ### 1. Prerequisites
 - **ROS 2 Humble**
 - **Nav2**  
-- **Cartographer SLAM**  
+- **RTAB MAP**  
 - **robot_localization**  
 - **GPS & IMU hardware drivers**  
 
@@ -67,16 +67,6 @@ cd ~/ros2_ws
 colcon build
 source install/setup.bash
 
-ros2 launch husky_bringup outdoor_simulation.launch.py
-
-
-ros2 launch husky_bringup outdoor_robot.launch.py
-
-
-
-ros2 launch husky_outdoor_navigation cartographer_slam.launch.py
-
-ros2 launch husky_outdoor_navigation outdoor_nav2.launch.py waypoints:=config/waypoints.yaml
 
 
 
